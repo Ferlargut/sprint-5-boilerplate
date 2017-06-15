@@ -2,6 +2,7 @@ var topicId = getParameterByName('topic_id');
 var url = {
     url:" http://examen-laboratoria-sprint-5.herokuapp.com/topics",    
 };
+var $topics =$("#topics");
 var id= location.search.replace("?id=","");
 var idurl=url.url+"/"+id;
 var cargarPagina = function () {
