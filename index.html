@@ -6,17 +6,35 @@
     <meta charset="utf-8">
     <title>Temas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
   <body>
-
     <h1>Aqui van todos los temas</h1>
-    
+    <h2>Ingresa un tema</h2>
+    <div class="row">
+     <form id="add-form" class="col s12">
+       <div class="row">
+         <div class="input-field col s6">           
+           <input id="name-author" type="text" class="validate">
+           <label for="name-author">Name</label>
+         </div>
+         <div class="input-field col s6">          
+           <input id="content" type="text" class="validate">
+           <label for="content">Topic</label>
+         </div>
+       </div>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+         <i class="material-icons right">send</i>
+       </button>
+     </form>
+
+    </div>
     <section id="topics" class="container">
     </section>
     
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="js/functions.js"></script>
     <script src="js/main.js"></script>
     
