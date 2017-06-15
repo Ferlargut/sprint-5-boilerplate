@@ -9,6 +9,7 @@ var cargarPagina = function () {
     cargarTopics();   
     $("#add-form").submit(newTopic);  
     $("#search-topic").click(filterTopic);  
+    
 };
 //hago una peticion para obtener el json con el qeu trabajare
 //asi como ejecutar funcion de crear topicos y mostrar 
@@ -20,20 +21,23 @@ var cargarTopics = function () {
 // creo la plantilla que voy a usar para mostrarlo en el html 
 var plantillaTopic =    
         
-        "<article class='row' data-url='__url__' data-id='__id__'>"+
-            "<h3 class='col s 3'>'__nameauthor__'</h3>"+
+        "<article class='row' data-id='__id__'>"+
+            "<h3 class='col s 3 dir'>'__nameauthor__'</h3>"+
+            "<a href='__url2__'>"+
             "<h4 class='col s 3'>'__content__'</h4>"+
+            "</a>"+
         "</article>";        
 // funcion en la  que obtengo datos de los objetos y los ingraso en la plantilla
 //para posteriormente ingresarlos al html
 var crearTopics = function (topic) {
     var name = topic.author_name;
     var content = topic.content;
-    var id =topic.id;
+    var topic_id =topic.id;
     var topic ="";
-    var ingresarUrl= url.url+"/"+id;        
+    var ingresarUrl= url.url+"/"+id;
+          
     
-    topic = plantillaTopic.replace("__nameauthor__",name).replace("__content__",content).replace("__id__",id).replace("__url__",ingresarUrl);
+    topic = plantillaTopic.replace("__nameauthor__",name).replace("__content__",content).replace("__id__",id).replace("__url2__","/verTopic.html?id=" + topic_id);
     $topics.append(topic);   
     
 };
@@ -77,8 +81,9 @@ var topicSearch = function (topic) {
     var topic ="";
     var ingresarUrl= url.url+"/"+id;        
     
-    topic = plantillaTopic.replace("__nameauthor__",name).replace("__content__",content).replace("__id__",id).replace("__url__",ingresarUrl);
+    topic = plantillaTopic.replace("__nameauthor__",name).replace("__content__",content).replace("__id__",id).replace("__url__","/verTopic.html?id=" + topic_id);
     $search.append(topic);       
 }
-//modal
+
+
 $(document).ready(cargarPagina);
